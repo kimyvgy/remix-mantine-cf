@@ -1,4 +1,6 @@
 import type { MetaFunction } from "@remix-run/cloudflare";
+import { MantineProvider } from "@mantine/core";
+import { StylesPlaceholder } from "@mantine/remix";
 import {
   Links,
   LiveReload,
@@ -16,17 +18,20 @@ export const meta: MetaFunction = () => ({
 
 export default function App() {
   return (
-    <html lang="en">
-      <head>
-        <Meta />
-        <Links />
-      </head>
-      <body>
-        <Outlet />
-        <ScrollRestoration />
-        <Scripts />
-        <LiveReload />
-      </body>
-    </html>
+    <MantineProvider withGlobalStyles withCSSVariables>
+      <html lang="en">
+        <head>
+          <Meta />
+          <Links />
+          <StylesPlaceholder />
+        </head>
+        <body>
+          <Outlet />
+          <ScrollRestoration />
+          <Scripts />
+          <LiveReload />
+        </body>
+      </html>
+    </MantineProvider>
   );
 }
