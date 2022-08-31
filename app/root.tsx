@@ -9,10 +9,11 @@ import {
   Scripts,
   ScrollRestoration,
 } from "@remix-run/react";
+import DefaultLayout from "./components/layout/default-layout";
 
 export const meta: MetaFunction = () => ({
   charset: "utf-8",
-  title: "New Remix App",
+  title: "Remix + Mantine + Cloudflare",
   viewport: "width=device-width,initial-scale=1",
 });
 
@@ -26,7 +27,10 @@ export default function App() {
           <StylesPlaceholder />
         </head>
         <body>
-          <Outlet />
+          <DefaultLayout>
+            <Outlet />
+          </DefaultLayout>
+
           <ScrollRestoration />
           <Scripts />
           <LiveReload />
